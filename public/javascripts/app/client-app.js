@@ -9,6 +9,7 @@
     toDoItems = 0;
     tabCheck = 0;
     deleteTab1 = [];
+    listClasses = [];
     
     function deleteButton() {
       $(".deleter").click(function() {
@@ -74,7 +75,13 @@
       $("#newEdit").click(function() {
         console.log($("#newToDo").val());
         console.log($("#newCats").val());
-        listClasses = $("#newCats").val().split(",");
+        //listClasses = $("#newCats").val().split(",");
+        //listClasses.forEach(function(element) {
+        //  element.trim();
+        //});
+        $.each($("#newCats").val().split(","), function(){
+          listClasses.push($.trim(this));
+        });
         newItem = $("#newToDo").val();
         toDoItems = toDoItems + 1;
         var post_object = {};
