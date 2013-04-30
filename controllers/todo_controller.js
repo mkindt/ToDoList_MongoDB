@@ -13,8 +13,8 @@ TodoController.list = function (req, res) {
 
 TodoController.create = function (req, res) {
     var t = new Todo({
-	"item":req.body.name,
-	"cats":req.body.age
+	"item":req.body.item,
+	"cats":req.body.cats
     });
 
     t.save(function (err, result) {

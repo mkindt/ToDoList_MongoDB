@@ -69,17 +69,28 @@
         listClasses = $("#newCats").val().split(",");
         newItem = $("#newToDo").val();
         toDoItems = toDoItems + 1;
+        var post_object = {};
+        if (newItem === "" || listClasses === "") {
+	        alert("include a todo and some categories");
+	      } else {
+	        post_object.item = newItem;
+	        post_object.cats = listClasses;
+	        console.log(post_object);
+          $.post("/todos/new", post_object);
+        }
+        
         $("#toDo").append("<div class='" + listClasses.join(' ') + "'><div class='left toDoItem" + toDoItems + "'>" + newItem + "<input name='submit' type='image' class = 'deleter' src='images/delete-icon.png'/></div><div class = 'right'><div class = 'cats'>" + listClasses + "</div></div></div>");
         $("#tab3").append("<div>'" + newItem + "' added.</div>");
+        
         deleteButton();
         return false;
       });
     }
 
-        $.getJSON("/todos.json", function (response) {
-	      response.forEach(function(todo) {
-	    console.log(todo);
-      toDoItems = toDoItems + 1;
+    $.getJSON("/todos.json", function (response) {
+	    response.forEach(function(todo) {
+	      console.log(todo);
+        toDoItems = toDoItems + 1;
         $("#toDo").append("<div class='" + todo.cats.join(' ') + "' style = 'display:none'><div class='left toDoItem" + toDoItems + "'>" + todo.item + "<input name='submit' type='image' class = 'deleter' src='images/delete-icon.png'/></div><div class = 'right'><div class = 'cats'>" + todo.cats + "</div></div></div>");
         $("#toDo").children().slideDown(1000);
       });
