@@ -2,11 +2,11 @@ var mongoose = require("mongoose"),
     TodoSchema,
     Todo;
 
-mongoose.connect("mongodb://localhost/development");
+mongoose.connect("mongodb://localhost/todo");
 
 TodoSchema = new mongoose.Schema({
     "item": String,
-    "cats" : String
+    "cats" : [String]
 });
 
 Todo = mongoose.model("Todo", TodoSchema);
@@ -16,8 +16,8 @@ Todo.findOne({}, function (err, result) {
 	console.log(err);
     } else if (result === null) {
 	var t = new Todo({
-	    "item": "Bill",
-	    "cats": 42
+	    "item": "stand up",
+	    "cats": ["fun","exercise"]
 	});
 
 	t.save(function (err) {

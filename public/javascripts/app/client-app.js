@@ -76,6 +76,18 @@
       });
     }
 
+        $.getJSON("/todos.json", function (response) {
+	      response.forEach(function(todo) {
+	    console.log(todo);
+      toDoItems = toDoItems + 1;
+        $("#toDo").append("<div class='" + todo.cats.join(' ') + "' style = 'display:none'><div class='left toDoItem" + toDoItems + "'>" + todo.item + "<input name='submit' type='image' class = 'deleter' src='images/delete-icon.png'/></div><div class = 'right'><div class = 'cats'>" + todo.cats + "</div></div></div>");
+        $("#toDo").children().slideDown(1000);
+      });
+      deleteButton();
+	    //addPersonToList(todo);
+	    //$(".people_list").append("<p>"+person.name+" "+person.age+"</p>");
+    });
+    
     $.getJSON("json/all.json", function (todos) {
       todos.forEach(function (todo) {
         toDoItems = toDoItems + 1;
