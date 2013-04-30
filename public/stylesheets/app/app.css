@@ -1,0 +1,120 @@
+body {
+  font-family: 'Oxygen', sans-serif;
+  text-align: center;
+  background: #d5d2ff;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.myTitles {
+  font-family: sans-serif;
+  background-color: #4b44a6;
+  color: transparent;
+  text-shadow: 0 2px 3px rgba(255,255,255,0.5);
+  -webkit-background-clip: text;
+     -moz-background-clip: text;
+          background-clip: text;
+}
+
+.tabs {
+  margin-top: 50px;
+  border-bottom: 1px solid #e4f1ff;
+  background: #d5d2ff;
+  padding: 0 0 6px 0;
+}
+
+.tabs .tab {
+  background: #cfe6ff;
+  padding: 10px 18px 6px 18px;
+  margin: 0 3px 0 0;
+  border-top-left-radius: 11px;
+  border-top-right-radius: 11px;
+  opacity: 0.6;
+  font-weight: bold;
+}
+
+.tabs .active {
+  background: #d5d2ff;
+  border: 1px solid #e4f1ff;
+  border-bottom-width: 0;
+  margin-top: -4px;
+  padding-top: 10px;
+  border-bottom: 1px solid #d5d2ff;
+  opacity: 1.0;
+}
+
+.content .tab {
+  display: none; 
+}
+
+.content .active {
+  display: block;
+  background: #d5d2ff;
+}
+
+.left {
+  font: 200 20px/1.5 Oxygen, Helvetica, Verdana, sans-serif;
+  border-bottom: 1px solid white;
+  text-align: left; 
+  text-decoration: none;
+  color: #000;
+  display: block;
+  border-radius: 18px;
+  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
+  background-color: #d5d2ff;
+  float: left;
+  text-shadow: 0 1px 0 #fff;
+  width: 92%;
+  margin:4px 20px;
+  padding: 3px 10px 0 10px;
+  opacity:0.8;
+}
+
+.deleter {
+  float: right;
+  padding: 12px 12px 0 0;
+}
+
+.left:hover {
+  font-size: 30px;
+  background: #e8e6ff;
+}
+
+.right {
+  text-align: left;
+  background-color: #d5d2ff;
+  font-size:8pt;
+  margin:2px 20px;
+  margin-left: 33%;
+  padding: 2px 0 3px 10px;
+}
+
+.content {
+  width: 800px;
+  background: #d5d2ff;
+  margin: 30px auto;
+}
+
+.right .cats{
+  text-align: left;
+  font-style: italic;
+}
+
+.tab h3{
+  text-align: left;  
+}
+
+#dataBox {
+  padding:30px;
+}
+#newToDo, #newCats {
+  width: 100%;
+  padding: 5px;
+}
