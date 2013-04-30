@@ -29,3 +29,4 @@ http.createServer(app).listen(app.get('port'), function(){
 
 app.get("/todos.json", tc.list);
 app.post("/todos/new", tc.create);
+app.post("/todos/delete", tc.destroy);

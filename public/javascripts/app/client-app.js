@@ -3,11 +3,13 @@
   'use strict';
   var $, $doc, toDoItems, tabCheck, setUpClickHandler, target, deleteTab1, listClasses, newItem, allCategories, foundToDo;
   $ = window.$;
+  
 
   $(document).ready(function () {
-    toDoItems = 6;
+    toDoItems = 0;
     tabCheck = 0;
     deleteTab1 = [];
+    
     function deleteButton() {
       $(".deleter").click(function() {
         deleteTab1 = $(this).parent().attr("class").split(" ");
@@ -15,7 +17,13 @@
         $("#tab1").find("." + deleteTab1).parent().hide("scale", function() {
           $("#tab1").find("." + deleteTab1).parent().remove();
         });
+        deleteTab1 = deleteTab1[0];
+        var JDelete = deleteTab1.substr(8);
+        var my_object = {};
+        my_object.number = JDelete;
         console.log("got hre " + deleteTab1);
+        console.log("deleting num " + JDelete);
+        $.post("/todos/delete", my_object);
         if (tabCheck === 1) {
           categorize();
         }
@@ -75,6 +83,7 @@
 	      } else {
 	        post_object.item = newItem;
 	        post_object.cats = listClasses;
+          post_object.number = toDoItems;
 	        console.log(post_object);
           $.post("/todos/new", post_object);
         }
@@ -90,8 +99,10 @@
     $.getJSON("/todos.json", function (response) {
 	    response.forEach(function(todo) {
 	      console.log(todo);
-        toDoItems = toDoItems + 1;
-        $("#toDo").append("<div class='" + todo.cats.join(' ') + "' style = 'display:none'><div class='left toDoItem" + toDoItems + "'>" + todo.item + "<input name='submit' type='image' class = 'deleter' src='images/delete-icon.png'/></div><div class = 'right'><div class = 'cats'>" + todo.cats + "</div></div></div>");
+        if (todo.number > toDoItems) {
+          toDoItems = todo.number;
+        }
+        $("#toDo").append("<div class='" + todo.cats.join(' ') + "' style = 'display:none'><div class='left toDoItem" + todo.number + "'>" + todo.item + "<input name='submit' type='image' class = 'deleter' src='images/delete-icon.png'/></div><div class = 'right'><div class = 'cats'>" + todo.cats + "</div></div></div>");
         $("#toDo").children().slideDown(1000);
       });
       deleteButton();
