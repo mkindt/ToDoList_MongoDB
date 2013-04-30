@@ -117,14 +117,14 @@
 	    //$(".people_list").append("<p>"+person.name+" "+person.age+"</p>");
     });
     
-    $.getJSON("json/all.json", function (todos) {
+    /*$.getJSON("json/all.json", function (todos) {
       todos.forEach(function (todo) {
         toDoItems = toDoItems + 1;
         $("#toDo").append("<div class='" + todo.categories.join(' ') + "' style = 'display:none'><div class='left toDoItem" + toDoItems + "'>" + todo.description + "<input name='submit' type='image' class = 'deleter' src='images/delete-icon.png'/></div><div class = 'right'><div class = 'cats'>" + todo.categories + "</div></div></div>");
         $("#toDo").children().slideDown(1000);
       });
       deleteButton();
-    });
+    }); */
 
     $("#toDo").children().each(function () {
       listClasses = $(this).attr("class").split(" ");
