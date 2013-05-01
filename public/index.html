@@ -1,61 +1,43 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="UTF-8"/>
-    <title>THE Todo oboT 3HT</title>
-    <link rel="stylesheet" href="stylesheets/app/app.css"/>
-    <link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'/>
-  </head>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>THE Todo oboT 3HT</title>
+        <link rel="stylesheet" href="stylesheets/app/app.css"/>
+        <link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'/>
+    </head>
   
-  <body>
-    <div class="myTitles"><h1>THE Todo oboT 3HT</h1></div>
-    <div class="tabs">
-      <a class="tab active" href="tab1">All</a>
-      <a class="tab" href="tab2">Categorized</a>
-      <a class="tab" href="tab3">Edit</a>
-    </div>
+    <body>
+        <div class="myTitles"><h1>THE Todo oboT 3HT</h1></div>
+        <div class="tabs">
+            <a class="tab active" href="tab1">All</a>
+            <a class="tab" href="tab2">Categorized</a>
+            <a class="tab" href="tab3">Edit</a>
+        </div>
     
-    <div class="content">
-      <div class="tab active" id="tab1">
-        <div id ="toDo">
-    <!--  <div class="exercise">
-            <div class="left toDoItem1">move legs</div>
-          </div>
-          <div class="exercise">
-            <div class="left toDoItem2">stand up</div>
-          </div>
-          <div class="exercise">
-            <div class="left toDoItem3">lift arms</div>
-          </div>
-          <div class="fun">
-            <div class="left toDoItem4">play guitar</div>
-          </div>
-          <div class="fun exercise">
-            <div class="left toDoItem5">play badminton</div>
-          </div>
-          <div class="fun aquatic dangerous">
-            <div class="left toDoItem6">play croquet</div>
-          </div> -->
+        <div class="content">
+            <div class="tab active" id="tab1">
+                <div id ="toDo">
+                </div>
+            </div>
+            <div class="tab" id="tab2">This is tab2.</div>
+            <div class="tab" id="tab3">
+                <div id="dataBox">
+                    <label>Enter a ToDo: </label>
+                    <input type="text" id="newToDo" placeholder="Your ToDo Item..." />
+                </div>
+                <div>
+                    <label>Enter Categories Related to the ToDo: </label>
+                    <input type="text" id="newCats" placeholder="Use commas- and you can now include spaces!" />
+                </div>
+                <div>
+                    <button id="newEdit" type="button">Submit</button>
+                </div>
+            </div>  
         </div>
-      </div>
-      <div class="tab" id="tab2">This is tab2.</div>
-      <div class="tab" id="tab3">
-        <div id="dataBox">
-          <label>Enter a ToDo: </label>
-          <input type="text" id="newToDo" placeholder="Your ToDo Item..." />
-        </div>
-        <div>
-          <label>Enter Categories Related to the ToDo: </label>
-          <input type="text" id="newCats" placeholder="Use commas and no spaces..." />
-        </div>
-        <div>
-          <button id="newEdit" type="button">Submit</button>
-        </div>
-      </div>  
-    </div>
-    
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script src="javascripts/app/client-app.js"></script>
-  </body>
-  <!-- attribution: Thanks to Artist: Lokas Software (Available for custom work) for the x icon -->
+        
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="javascripts/app/client-app.js"></script>
+    </body>
+    <!-- attribution: Thanks to Artist: Lokas Software (Available for custom work) for the x icon -->
 </html>
