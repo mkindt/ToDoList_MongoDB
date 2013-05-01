@@ -3,14 +3,13 @@
     'use strict';
     var $, $doc, toDoItems, tabCheck, setUpClickHandler, target, deleteTab1, JDelete, my_object, post_object, listClasses, newItem, allCategories, foundToDo;
     $ = window.$;
-    
-  
-    $(document).ready(function () {
+
+    $(document).ready(function() {
         toDoItems = 0;
         tabCheck = 0;
         deleteTab1 = [];
         listClasses = [];
-        
+
         function deleteButton() {
             $(".deleter").click(function() {
                 deleteTab1 = $(this).parent().attr("class").split(" ");
@@ -31,7 +30,7 @@
                 return false;
             });
         }
-    
+
         function categorize() {
             allCategories = [];
             foundToDo = [];
@@ -51,7 +50,7 @@
             });
             deleteButton();
         }
-    
+
         setUpClickHandler = function (anchor) {
             anchor.click(function () {
                 target = $(this).attr("href");
@@ -70,42 +69,38 @@
                 return false;
             });
         };
-    
+
         function submitButton() {
             $("#newEdit").click(function() {
                 console.log($("#newToDo").val());
                 console.log($("#newCats").val());
-                //listClasses = $("#newCats").val().split(",");
-                //listClasses.forEach(function(element) {
-                //  element.trim();
-                //});
-                $.each($("#newCats").val().split(","), function(){
+                $.each($("#newCats").val().split(","), function() {
                     listClasses.push($.trim(this));
                 });
                 newItem = $("#newToDo").val();
                 toDoItems = toDoItems + 1;
                 post_object = {};
                 if (newItem === "" || listClasses === "") {
-        	          alert("include a todo and some categories");
-        	      } else {
-          	        post_object.item = newItem;
-          	        post_object.cats = listClasses;
+                    // no problem
+                } else {
+                    post_object.item = newItem;
+                    post_object.cats = listClasses;
                     post_object.number = toDoItems;
-          	        console.log(post_object);
+                    console.log(post_object);
                     $.post("/todos/new", post_object);
                 }
-              
+
                 $("#toDo").append("<div class='" + listClasses.join(' ') + "'><div class='left toDoItem" + toDoItems + "'>" + newItem + "<input name='submit' type='image' class = 'deleter' src='images/delete-icon.png'/></div><div class = 'right'><div class = 'cats'>" + listClasses + "</div></div></div>");
                 $("#tab3").append("<div>'" + newItem + "' added.</div>");
-              
+
                 deleteButton();
                 return false;
             });
         }
-    
+
         $.getJSON("/todos.json", function (response) {
-      	    response.forEach(function(todo) {
-        	      console.log(todo);
+            response.forEach(function(todo) {
+                console.log(todo);
                 if (todo.number > toDoItems) {
                     toDoItems = todo.number;
                 }
@@ -114,7 +109,7 @@
             });
             deleteButton();
         });
-    
+
         $("#toDo").children().each(function () {
             listClasses = $(this).attr("class").split(" ");
             $(this).css("display", "none");
@@ -122,12 +117,12 @@
             $(this).append("<div class = 'right'><div class = 'cats'>" + listClasses + "</div></div>");
             $(this).slideDown(1000);
         });
-    
+
         console.log("about to set up click handlers");
         setUpClickHandler($(".tabs .tab"));
         deleteButton();
         submitButton();
-    
+
         $doc = $(document);
     });
 }(jQuery));
